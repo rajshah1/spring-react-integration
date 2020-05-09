@@ -36,7 +36,8 @@ jobs:
         NameOfActor: $GITHUB_ACTOR
         NameOfApplication: $GITHUB_ACTION
         CurrentValue: ${{steps.date.outputs.date}}  
-      run: echo "$CurrentValue and $NameOfApplication"
-      #uses: pullreminders/slack-action@master
-      #with:
-        #args: '{\"channel\":\"CT39SRCN7\",\"text\":\\"}'
+      #run: echo "$CurrentValue and $NameOfApplication"
+      uses: pullreminders/slack-action@master
+      with:
+        args: '{\"channel\":\"CT39SRCN7\",\"text\":\"ACTION ON: $NameOfApplication application by $GITHUB_ACTOR at $CurrentValue .\"}'
+Ac
