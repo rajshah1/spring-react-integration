@@ -31,11 +31,8 @@ jobs:
     # this is for slack channel connectivity
     - name: Notify slack
       env:
-        SLACK_BOT_TOKEN: ${{ secrets.BOT_TOKEN_KEY }}
-        GIT_ACTOR: ${{github.actor}}
-        NameOfApplication: ${{github.repository}}
-        CurrentValue: ${{steps.date.outputs.date}} 
+        SLACK_BOT_TOKEN: ${{ secrets.BOT_TOKEN_KEY }} 
         #run: echo "$CurrentValue and $NameOfApplication $GIT_ACTOR"
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"CT39SRCN7\",\"text\":\"$NameOfApplication lets see ${{github.actor}} \"}'
+        args: '{\"channel\":\"CT39SRCN7\",\"text\":\"ACTION IS ${{job.status}} ON: REPO - ${{github.repository}} BY ${{gihub.actor}} AT ${{steps.date.outputs.date}}\"}'
