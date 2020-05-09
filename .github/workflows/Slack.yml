@@ -33,10 +33,9 @@ jobs:
       env:
         SLACK_BOT_TOKEN: ${{ secrets.BOT_TOKEN_KEY }}
         GIT_ACTOR: ${{github.actor}}
-        NameOfActor: $GITHUB_ACTOR
-        NameOfApplication: $GITHUB_ACTION
-        CurrentValue: ${{steps.date.outputs.date}}  
-        run: echo "$CurrentValue and $NameOfApplication $GIT_ACTOR"
+        NameOfApplication: ${{github.repository}}
+        CurrentValue: ${{steps.date.outputs.date}} 
+        #run: echo "$CurrentValue and $NameOfApplication $GIT_ACTOR"
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"CT39SRCN7\",\"text\":\"ACTION ON: $GITHUB_ACTION application by $GIT_ACTOR at $CurrentValue\"}'
+        args: '{\"channel\":\"CT39SRCN7\",\"text\":\"$NameOfApplication lets see ${{github.actor}} \"}'
