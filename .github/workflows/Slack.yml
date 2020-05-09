@@ -35,4 +35,4 @@ jobs:
         #run: echo "$CurrentValue and $NameOfApplication $GIT_ACTOR"
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"CT39SRCN7\",\"text\":\"ACTION IS ${{job.status}} ON: REPO - ${{github.repository}} BY ${{gihub.actor}} AT ${{steps.date.outputs.date}}\"}'
+        args: '{\"channel\":\"CT39SRCN7\",\"text\":\"ACTION IS ${{job.status}} ON: REPO - ${{github.repository}} BY ${{github.actor}} AT ${{steps.date.outputs.date}}\"}'
