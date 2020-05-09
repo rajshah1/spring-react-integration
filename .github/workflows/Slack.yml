@@ -31,7 +31,7 @@ jobs:
     # this is for slack channel connectivity
     - name: Notify slack
       env:
-        #SLACK_BOT_TOKEN: ${{ secrets.BOT_TOKEN_KEY }}
+        SLACK_BOT_TOKEN: ${{ secrets.BOT_TOKEN_KEY }}
         NameOfFlow: $GITHUB_ACTION
         NameOfActor: $GITHUB_ACTOR
         NameOfApplication: $GITHUB_ACTION
