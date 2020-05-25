@@ -19,16 +19,22 @@ public class FirebaseInitialize {
     @PostConstruct
     public void initialize() {
         try {
+// This will work on if you have the service account json file if not add this path to user defined envirment variable in computer
+//FileInputStream serviceAccount =new FileInputStream("./ServiceAccount.json");
 
-FileInputStream serviceAccount =
-  new FileInputStream("./ServiceAccount.json");
-
+/*
+ * FirebaseOptions options = new FirebaseOptions.Builder()
+ * .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+ * .setDatabaseUrl("https://infy-rest-data.firebaseio.com") .build();
+ * FirebaseApp.initializeApp(options);
+ */
 FirebaseOptions options = new FirebaseOptions.Builder()
-  .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-  .setDatabaseUrl("https://infy-rest-data.firebaseio.com")
-  .build();
-
+.setCredentials(GoogleCredentials.getApplicationDefault())
+.setDatabaseUrl("https://infy-rest-data.firebaseio.com/")
+.build();
 FirebaseApp.initializeApp(options);
+
+
 
     } catch (Exception e) {
         e.printStackTrace();
