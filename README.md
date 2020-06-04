@@ -1,6 +1,8 @@
 # Spring Application
 
-![Java CI with Maven](https://github.com/rajshah1/spring-react-integration/workflows/Java%20CI%20with%20Maven/badge.svg)
+![Java CI with Maven](https://github.com/rajshah1/spring-react-integration/workflows/Java%20CI%20with%20Maven/badge.svg)  ![slack notification](https://github.com/rajshah1/spring-react-integration/workflows/slack%20notification/badge.svg)
+
+
 
 This spring application is connected to database via Firebase .<br/>
 The service layer has the bussiness log for CRUD operations.<br/>
