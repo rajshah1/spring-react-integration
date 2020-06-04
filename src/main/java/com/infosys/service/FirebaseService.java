@@ -13,15 +13,15 @@ import com.google.firebase.cloud.FirestoreClient;
 
 @Service
 public class FirebaseService {
-	Firestore dbFirestore = FirestoreClient.getFirestore();
+	
     public String saveUserDetails(Person person) throws InterruptedException, ExecutionException {
-        
+        Firestore dbFirestore = FirestoreClient.getFirestore();
         ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("users").document(person.getName()).set(person);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 	
 	    public Person getUserDetails(String name) throws InterruptedException, ExecutionException {
-      
+      Firestore dbFirestore = FirestoreClient.getFirestore();
         DocumentReference documentReference = dbFirestore.collection("users").document(name);
         ApiFuture<DocumentSnapshot> future = documentReference.get();
 
